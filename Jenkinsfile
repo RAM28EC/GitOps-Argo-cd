@@ -43,7 +43,7 @@ pipeline {
                     git add deployment.yml
                     git commit -m "updated deployment file"
                     """
-                    #credentialbindusernamesyantax{
+                    withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]){
                       sh  "git push https://github.com/RAM28EC/GitOps-Argo-cd.git main"
                     }
                 }
