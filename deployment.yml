@@ -21,7 +21,7 @@ spec:
           # - Each init container must complete successfully before the next one starts.
       containers:
       - name:  flask-app-container
-        image:  28cloud/gitops-argo-app.*:3:v1
+        image:  28cloud/gitops-argo-app:4
         resources:
           limits:
             memory: "128Mi"
