@@ -3,7 +3,7 @@ pipeline {
     environment {
         
         APP_NAME = "gitops-argo-app"
-        IMAGE_TAG = "${BUILD_NUMBER}"
+       
         
     }
     stages {
