@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  flask-app-deploy
+  namespace: default
+  labels:
+    app:  flask-app
+spec:
+  selector:
+    matchLabels:
+      app: flask-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app:  flask-app
+    spec:
+      # initContainers:
+        # Init containers are exactly like regular containers, except:
+          # - Init containers always run to completion.
+          # - Each init container must complete successfully before the next one starts.
+      containers:
+      - name:  flask-app-container
+        image:  28cloud/gitops-argo-app:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort:  5000
+          name:  flask-app-port
+        
